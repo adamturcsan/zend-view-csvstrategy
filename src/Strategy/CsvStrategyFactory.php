@@ -27,12 +27,7 @@ class CsvStrategyFactory
         /* @var $renderer CsvRenderer */
         $renderer = $container->get(CsvRenderer::class);
 
-        $config = $container->get('config');
-        $templateMap = (isset($config['view_manager']) && isset($config['view_manager']['template_map']))
-                ? $config['view_manager']['template_map']
-                : [];
-
-        $resolver = new TemplateMapResolver($templateMap);
+        $resolver = $container->get('ViewTemplateMapResolver');
         $renderer->setResolver($resolver);
 
         $helperManager = $container->get('ViewHelperManager');
