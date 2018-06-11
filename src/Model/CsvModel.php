@@ -7,7 +7,7 @@
  * @license https://opensource.org/licenses/MIT MIT License
  */
 
-namespace LegoW\View\Model;
+namespace LegoW\View\Csv\Model;
 
 use Zend\View\Model\ViewModel;
 /**

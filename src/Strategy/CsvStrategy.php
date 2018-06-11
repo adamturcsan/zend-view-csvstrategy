@@ -3,18 +3,17 @@
 /*
  * LegoW\Zend-View-CsvStrategy (https://github.com/adamturcsan/zend-view-csvstrategy)
  * 
- * @copyright Copyright (c) 2014-2016 Legow Hosting Kft. (http://www.legow.hu)
+ * @copyright Copyright (c) 2014-2018 Legow Hosting Kft. (http://www.legow.hu)
  * @license https://opensource.org/licenses/MIT MIT License
  */
 
-namespace LegoW\View\Strategy;
+namespace LegoW\View\Csv\Strategy;
 
 use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventManagerInterface;
-use Zend\View\Model;
 use Zend\View\ViewEvent;
-use LegoW\View\Renderer\CsvRenderer;
-use LegoW\View\Model\CsvModel;
+use LegoW\View\Csv\Renderer\CsvRenderer;
+use LegoW\View\Csv\Model\CsvModel;
 
 /**
  * Description of CsvStrategy
