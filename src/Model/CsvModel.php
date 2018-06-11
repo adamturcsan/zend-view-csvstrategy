@@ -2,7 +2,7 @@
 
 /*
  * LegoW\Zend-View-CsvStrategy (https://github.com/adamturcsan/zend-view-csvstrategy)
- * 
+ *
  * @copyright Copyright (c) 2014-2016 Legow Hosting Kft. (http://www.legow.hu)
  * @license https://opensource.org/licenses/MIT MIT License
  */
@@ -10,6 +10,7 @@
 namespace LegoW\View\Csv\Model;
 
 use Zend\View\Model\ViewModel;
+
 /**
  * Description of CsvModel
  *
@@ -17,8 +18,8 @@ use Zend\View\Model\ViewModel;
  */
 class CsvModel extends ViewModel
 {
-    protected $__fileName = "csvmodel.csv";
-    
+    private $__fileName = "csvmodel.csv";
+
     public function getFileName()
     {
         return $this->__fileName;
@@ -29,5 +30,4 @@ class CsvModel extends ViewModel
         $this->__fileName = $fileName;
         return $this;
     }
-   
 }

@@ -2,7 +2,7 @@
 
 /*
  * LegoW\Zend-View-CsvStrategy (https://github.com/adamturcsan/zend-view-csvstrategy)
- * 
+ *
  * @copyright Copyright (c) 2014-2018 Legow Hosting Kft. (http://www.legow.hu)
  * @license https://opensource.org/licenses/MIT MIT License
  */
@@ -34,8 +34,11 @@ class CsvRenderer implements RendererInterface, TreeRendererInterface
     public function render($nameOrModel, $values = null)
     {
         $output = $this->phpRenderer->render($nameOrModel, $values);
-        $utf16Output = chr(255) . chr(254) .  mb_convert_encoding($output,
-                        'UTF-16LE', 'UTF-8');
+        $utf16Output = chr(255) . chr(254) .  mb_convert_encoding(
+            $output,
+            'UTF-16LE',
+            'UTF-8'
+        );
         return $utf16Output;
     }
 

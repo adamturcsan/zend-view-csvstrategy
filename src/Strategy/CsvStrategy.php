@@ -2,7 +2,7 @@
 
 /*
  * LegoW\Zend-View-CsvStrategy (https://github.com/adamturcsan/zend-view-csvstrategy)
- * 
+ *
  * @copyright Copyright (c) 2014-2018 Legow Hosting Kft. (http://www.legow.hu)
  * @license https://opensource.org/licenses/MIT MIT License
  */
@@ -43,10 +43,16 @@ class CsvStrategy extends AbstractListenerAggregate
 
     public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $this->listeners[] = $events->attach(ViewEvent::EVENT_RENDERER,
-                [$this, 'selectRenderer'], $priority);
-        $this->listeners[] = $events->attach(ViewEvent::EVENT_RESPONSE,
-                [$this, 'injectResponse'], $priority);
+        $this->listeners[] = $events->attach(
+            ViewEvent::EVENT_RENDERER,
+            [$this, 'selectRenderer'],
+            $priority
+        );
+        $this->listeners[] = $events->attach(
+            ViewEvent::EVENT_RESPONSE,
+            [$this, 'injectResponse'],
+            $priority
+        );
     }
 
     /**
@@ -59,7 +65,7 @@ class CsvStrategy extends AbstractListenerAggregate
     public function selectRenderer(ViewEvent $e)
     {
         $model = $e->getModel();
-        if (!$model instanceof CsvModel) {
+        if (! $model instanceof CsvModel) {
             // no CsvModel; do nothing
             return;
         }
@@ -83,7 +89,7 @@ class CsvStrategy extends AbstractListenerAggregate
         }
 
         $result = $e->getResult();
-        if (!is_string($result)) {
+        if (! is_string($result)) {
             // We don't have a string, and thus, no CSV
             return;
         }
@@ -103,5 +109,4 @@ class CsvStrategy extends AbstractListenerAggregate
             $headers->addHeaderLine('Content-Disposition: inline; filename="' . $model->getFileName() . '"');
         }
     }
-
 }

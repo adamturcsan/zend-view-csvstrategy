@@ -2,7 +2,7 @@
 
 /*
  * LegoW\Zend-View-CsvStrategy (https://github.com/adamturcsan/zend-view-csvstrategy)
- * 
+ *
  * @copyright Copyright (c) 2014-2018 Legow Hosting Kft. (http://www.legow.hu)
  * @license https://opensource.org/licenses/MIT MIT License
  */
@@ -35,5 +35,4 @@ class CsvStrategyFactory
 
         return new CsvStrategy($renderer);
     }
-
 }
