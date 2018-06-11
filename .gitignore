@@ -1,3 +1,4 @@
 /tmp/
 /vendor/
 /test/configuration.xml
+composer.lock
