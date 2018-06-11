@@ -26,7 +26,7 @@ class ConfigProvider
     public function __invoke()
     {
         return [
-            'service_manager' => [
+            'dependencies' => [
                 'factories' => [
                     CsvRenderer::class => CsvRendererFactory::class,
                     CsvStrategy::class => CsvStrategyFactory::class

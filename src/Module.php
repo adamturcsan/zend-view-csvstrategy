@@ -21,6 +21,8 @@ class Module implements \Zend\ModuleManager\Feature\ConfigProviderInterface
     public function getConfig()
     {
         $configProvider = new ConfigProvider();
-        return $configProvider();
+        return [
+            'service_manager' => $configProvider()['dependencies']
+        ];
     }
 }
