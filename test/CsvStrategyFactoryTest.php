@@ -9,11 +9,13 @@
 
 namespace LegoW\View\Test;
 
-use PHPUnit\Framework\TestCase;
 use Interop\Container\ContainerInterface;
-use Zend\View\HelperPluginManager;
-use LegoW\View\Strategy\CsvStrategyFactory;
-use LegoW\View\Strategy\CsvStrategy;
+use LegoW\View\Csv\Renderer\CsvRenderer;
+use LegoW\View\Csv\Strategy\CsvStrategy;
+use LegoW\View\Csv\Strategy\CsvStrategyFactory;
+use PHPUnit\Framework\TestCase;
+use Zend\ServiceManager\PluginManagerInterface;
+use Zend\View\Resolver\ResolverInterface;
 
 /**
  * Description of CsvStrategyFactoryTest
@@ -26,13 +28,20 @@ class CsvStrategyFactoryTest extends TestCase
     {
         $mockContainer = $this->createMock(ContainerInterface::class);
         
-        $mockViewHelperManager = $this->createMock(HelperPluginManager::class);
+        $mockViewHelperManager = $this->createMock(PluginManagerInterface::class);
+        $mockRenderer = $this->createMock(CsvRenderer::class);
+        $mockResolver = $this->createMock(ResolverInterface::class);
         
         $mockContainer->method('get')
-                      ->will($this->onConsecutiveCalls([],$mockViewHelperManager));
+                    ->will($this->onConsecutiveCalls(
+                        $mockRenderer,
+                        $mockResolver,
+                        [],
+                        $mockViewHelperManager
+                    ));
         
         $csvStrategyFactory = new CsvStrategyFactory();
         
-        $this->assertInstanceOf(CsvStrategy::class, $csvStrategyFactory($mockContainer, 'CsvStrategy'));
+        $this->assertInstanceOf(CsvStrategy::class, $csvStrategyFactory($mockContainer));
     }
 }

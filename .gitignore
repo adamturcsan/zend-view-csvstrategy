@@ -1,3 +1,5 @@
 /tmp/
 /vendor/
 /test/configuration.xml
+/phpunit.xml
+/composer.lock
