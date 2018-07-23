@@ -31,6 +31,11 @@ class ConfigProvider
                     CsvRenderer::class => CsvRendererFactory::class,
                     CsvStrategy::class => CsvStrategyFactory::class
                 ]
+            ],
+            'view_manager' => [
+                'strategies' => [
+                    CsvStrategy::class
+                ]
             ]
         ];
     }
